@@ -1,13 +1,11 @@
 function Get-DnsClientConfigurationSource {
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'InterfaceIndex')]
     param(
-        [Parameter(ValueFromPipeline)]
-        [ValidateNotNullOrEmpty()]
-        $NetAdapter, # This varaible is used whenever there is a single NetAdapter object, so dont think of it as an immutable input object
-
+        [Parameter(ParameterSetName = 'InterfaceIndex')]
         [ValidateNotNullOrEmpty()]
         [int]$InterfaceIndex,
 
+        [Parameter(ParameterSetName = 'InterfaceAlias')]
         [ValidateNotNullOrEmpty()]
         [string]$InterfaceAlias
     )
